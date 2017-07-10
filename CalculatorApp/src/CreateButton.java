@@ -8,8 +8,8 @@ public class CreateButton {
 
 	public CreateButton(String symbol, ActionListener listener, JPanel pane) {
 		name = new JButton(symbol);
-		name.addActionListener(listener);
 		name.setActionCommand(symbol);
+		name.addActionListener(listener);
 		pane.add(name);
 	}
 }

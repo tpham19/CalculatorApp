@@ -2,14 +2,14 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Calculator {
-	private String token = "";
+	private String token;
 	private String exception = "";
 
 	public String getException() {
 		return exception;
 	}
 
-	public boolean checkInput(String in) {
+	public boolean checkInput(String input) {
 		int open = 0;
 		int closed = 0;
 		int opCount = 0;
@@ -17,7 +17,7 @@ public class Calculator {
 		int sqrtCount = 0;
 		boolean valid = true;
 
-		Scanner reader = new Scanner(in);
+		Scanner reader = new Scanner(input);
 
 		while (reader.hasNext()) {
 			token = reader.next();
@@ -37,7 +37,7 @@ public class Calculator {
 			valid = false;
 			exception = "Error: unbalanced parenthesis";
 		}
-
+		// Must have more numbers than operators
 		if (numCount <= opCount) {
 			valid = false;
 			exception = "Error: too many operators";
@@ -140,9 +140,9 @@ public class Calculator {
 			return false;
 		if ((op1.equals("*") || op1.equals("/")) && (op2.equals("+") || op2.equals("-")))
 			return false;
-		if (op1.equals("^") && (op2.equals("/") || op2.equals("*")))
-			return false;
 		if (op1.equals("^") && (op2.equals("-") || op2.equals("+")))
+			return false;
+		if (op1.equals("^") && (op2.equals("/") || op2.equals("*")))
 			return false;
 		if (op1.equals("sqrt") && (op2.equals("/") || op2.equals("*")))
 			return false;

@@ -12,7 +12,6 @@ import javax.swing.JTextField;
  * The program simulates a calculator. The order of operations are properly
  * evaluated.
  * 
- *
  */
 public class CalculatorGUI {
 	CreateButton one, two, three, four, five, six, seven, eight, nine, dot, zero, addition, subtract, multiply, divide,
@@ -20,12 +19,10 @@ public class CalculatorGUI {
 
 	JTextField displayBox;
 	private String button = "";
-	// The "input" variable holds user input that is readable to the "Calculator"
-	// class
+	// The "input" variable holds user input.
 	private String input = "";
 	// The variable "newEntry" resets the screen when the user clicks any button
-	// after evaluating the expression
-	// It removes the dependency on the "clear" button
+	// after evaluating an expression.
 	private boolean newEntry = false;
 	private double result;
 	DecimalFormat formater = new DecimalFormat("0.##########");
@@ -66,8 +63,8 @@ public class CalculatorGUI {
 		equals = new CreateButton(" = ", new EqualsButton(), centerPane);
 		divide = new CreateButton(" / ", new OperationButton(), centerPane);
 		ans = new CreateButton("ans", new OperationButton(), bottomPane);
-		neg = new CreateButton("(-)", new OperationButton(), bottomPane);
 		clear = new CreateButton("clear", new OperationButton(), bottomPane);
+		neg = new CreateButton("(-)", new OperationButton(), bottomPane);
 
 		frame.getContentPane().add(BorderLayout.NORTH, displayBox);
 		frame.getContentPane().add(BorderLayout.CENTER, centerPane);
@@ -115,8 +112,7 @@ public class CalculatorGUI {
 				input = "";
 			} else if (button == "sqrt") {
 				displayBox.setText(displayBox.getText() + "sqrt( ");
-				input = input + "sqrt ( "; // extra spaces makes string readable to
-													// "Calculator" class
+				input = input + "sqrt ( ";
 			} else {
 				displayBox.setText(displayBox.getText() + button);
 				input = input + button;
